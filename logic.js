@@ -12,19 +12,7 @@ function makebubble()
 
 var timer=60;
 
-function runtimer(){
-    var timerint=setInterval(function(){
-        if(timer>0)
-        {
-            timer--;
-            document.querySelector("#timer").textContent=timer;
-        }
-        else{
-            clearInterval(timerint);
-            document.querySelector("#pbottom").innerHTML=`<h1>Game Over!</h1>`;
-        }
-    },1000);//1000ms==1sec
-}
+
 
 var a=0;
 function hitcount(){
@@ -49,6 +37,35 @@ document.querySelector("#pbottom").addEventListener("click",function(details)
     }
 
 })
+
+var timer;
+
+document.querySelector("#star1").addEventListener("click", function() {
+    // Ask user for the number of seconds to play
+    var totalSeconds = prompt("How many seconds do you want to play?", "120");
+    
+    // Ensure valid number input and start the timer
+    if (totalSeconds && !isNaN(totalSeconds) && totalSeconds > 0) {
+        timer = totalSeconds;
+        document.querySelector("#timer").textContent = timer;
+        runtimer();
+    } else {
+        alert("Please enter a valid number of seconds.");
+    }
+});
+
+function runtimer(){
+    var timerint = setInterval(function(){
+        if (timer > 0) {
+            timer--;
+            document.querySelector("#timer").textContent = timer;
+        } else {
+            clearInterval(timerint);
+            document.querySelector("#pbottom").innerHTML = `<h1>Game Over!</h1>`;
+        }
+    }, 1000); // 1000ms == 1 second
+}
+
 
 
 
