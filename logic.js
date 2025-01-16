@@ -10,7 +10,7 @@ function makebubble()
     document.querySelector("#pbottom").innerHTML=clu
 }
 
-var timer=8;
+var timer=60;
 
 function runtimer(){
     var timerint=setInterval(function(){
